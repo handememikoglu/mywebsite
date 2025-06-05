@@ -13,14 +13,12 @@ export default function Home() {
     <main className="bg-black min-h-screen text-white">
       <Header />
 
-      {/* Ana alan - BlurFade ile animasyon */}
       <BlurFade className="flex flex-col md:flex-row items-center justify-between px-8 pt-32 pb-32 max-w-6xl mx-auto gap-12">
-        {/* Sol Taraf (Yazı Bölümü) */}
         <div className="md:w-1/2 space-y-6">
-          <h1 className="text-4xl md:text-6xl font-serif leading-tight">
+          <h1 className="text-4xl md:text-6xl  leading-tight">
             Yaptığım İşlere Göz Atmaya Ne Dersiniz?
           </h1>
-          <p className="border border-white rounded-full inline-block px-6 py-2 text-sm">
+          <p className="border border-white rounded-full inline-block px-6 py-2 text-xs md:text-sm">
             Hande Eylül Memikoğlu / Junior Web Developer
           </p>
           <a href="#contact">
@@ -33,7 +31,6 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Sağ Taraf (Oval Fotoğraf) */}
         <div className="md:w-1/2 mt-12 md:mt-0 flex justify-center">
           <div className="w-72 h-96 rounded-full overflow-hidden">
             <Image
@@ -47,7 +44,6 @@ export default function Home() {
         </div>
       </BlurFade>
 
-      {/* Diğer bölümler */}
       <BlurFade className="px-8 pt-50">
         <AboutSection />
       </BlurFade>
