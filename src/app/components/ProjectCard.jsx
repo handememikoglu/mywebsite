@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { Github, Triangle } from "lucide-react"
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
+import Image from "next/image"
 
 export default function ProjectCard({ title, images = [], description, techs = [], github, demo }) {
   const [open, setOpen] = useState(false)
@@ -33,9 +34,7 @@ export default function ProjectCard({ title, images = [], description, techs = [
         </CardHeader>
 
         <CardContent className="flex flex-col md:flex-row gap-6">
-          {/* Sol: Görseller */}
           <div className="w-full md:w-[45%] space-y-2">
-            {/* Ana Görsel */}
             <div
               className="aspect-video w-full overflow-hidden rounded-lg  cursor-pointer"
               onClick={() => openModal(0)}
@@ -47,7 +46,6 @@ export default function ProjectCard({ title, images = [], description, techs = [
               />
             </div>
 
-            {/* Küçük Görseller */}
             <div className="flex gap-2 overflow-x-auto">
               {images.map((src, i) => (
                 <img
@@ -61,7 +59,6 @@ export default function ProjectCard({ title, images = [], description, techs = [
             </div>
           </div>
 
-          {/* Sağ: Açıklama ve Butonlar */}
           <div className="flex flex-col justify-between gap-4 md:w-1/2">
             <div className="flex flex-wrap gap-2">
               {techs.map((tech, i) => (
@@ -73,7 +70,7 @@ export default function ProjectCard({ title, images = [], description, techs = [
 
             <p className="text-muted-foreground text-sm text-justify">{description}</p>
 
-            <div className="flex gap-3 mt-4">
+            <div className="flex gap-3 mt-4 items-center">
               {github && (
                 <Button variant="outline" asChild>
                   <a href={github} target="_blank" rel="noopener noreferrer"><Github className="mr-2" /> GitHub</a>
@@ -81,7 +78,7 @@ export default function ProjectCard({ title, images = [], description, techs = [
               )}
               {demo && (
                 <Button asChild>
-                  <a href={demo} target="_blank" rel="noopener noreferrer"><Triangle className="mr-2" /> Vercel</a>
+                  <a href={demo} target="_blank" rel="noopener noreferrer"> <Image src="./vercel-icon.svg" width={12} height={12}alt="vercel icon" />  Vercel</a>
                 </Button>
               )}
             </div>
@@ -89,7 +86,6 @@ export default function ProjectCard({ title, images = [], description, techs = [
         </CardContent>
       </Card>
 
-      {/* Modal: Görsel Galeri */}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="w-full max-w-4xl p-4">
           <DialogTitle className="hidden">Dialog Başlığı</DialogTitle>
@@ -100,7 +96,6 @@ export default function ProjectCard({ title, images = [], description, techs = [
               className="max-w-full max-h-full object-contain"
             />
 
-            {/* Önceki Sonraki */}
             <button
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-gray-800 p-2 rounded-full hover:bg-gray-700"
               onClick={prevImage}

@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import Header from "./components/Header";
 import AboutSection from "./components/AboutSection";
 import ProjectsSection from "./components/ProjectsSection";
-import { BlurFade } from "@/components/magicui/blur-fade"; // Buradan gelir
+import { BlurFade } from "@/components/magicui/blur-fade"; 
 import ContactSection from "./components/ContactSection";
+import { useLanguage } from "./LanguageContext";
 
 export default function Home() {
+  const {t} = useLanguage();
   return (
     <main className="bg-black min-h-screen text-white">
       <Header />
@@ -16,17 +18,17 @@ export default function Home() {
       <BlurFade className="flex flex-col md:flex-row items-center justify-between px-8 pt-32 pb-32 max-w-6xl mx-auto gap-12">
         <div className="md:w-1/2 space-y-6">
           <h1 className="text-4xl md:text-6xl  leading-tight">
-            Yaptığım İşlere Göz Atmaya Ne Dersiniz?
+           {t("main_title")}
           </h1>
-          <p className="border border-white rounded-full inline-block px-6 py-2 text-xs md:text-sm">
+          <p className="border border-white rounded-full inline-block px-6 py-2 text-xs md:text-sm whitespace-nowrap">
             Hande Eylül Memikoğlu / Junior Web Developer
           </p>
           <a href="#contact">
             <Button
               variant="ghost"
-              className="text-white ml-4 border border-white rounded-full"
+              className="text-white md:ml-4 border border-white rounded-full md:text-sm text-xs"
             >
-              Benimle Çalışın →
+              {t("main_subtitle")}
             </Button>
           </a>
         </div>
